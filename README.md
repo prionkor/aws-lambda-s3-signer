@@ -11,3 +11,16 @@ This solution uses serverless framework
 3. rename `config.example.json` to `config.json`
 4. Change values to reflect your account
 5. Run `serverless deploy` and you are done!
+
+# Caution!
+
+Current version doesn't have authentication added to your api. You will have to do it yourself. [See this video](https://www.youtube.com/watch?v=V-ac_ZvdAW4) to add API keys.
+
+## License
+
+Apache License, Version 2.0
+
+## Find me
+
+1. [Linkedin](https://www.linkedin.com/in/sisir/)
+2. [Twitter](https://www.twitter.com/prionkor)
