@@ -1,0 +1,6 @@
+{
+  "REGION": "us-east-1",
+  "STAGE": "dev",
+  "S3_BUCKET": "your-bucket-name",
+  "EXPIRES": 300
+}

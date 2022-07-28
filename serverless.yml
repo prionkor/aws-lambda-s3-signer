@@ -1,0 +1,35 @@
+org: prionkor
+app: sign-s3
+service: sign-s3
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${file(config.json):STAGE}
+  region: ${file(config.json):REGION}
+
+  environment:
+    BUCKET: ${file(config.json):S3_BUCKET}
+    REGION: ${file(config.json):REGION}
+    EXPIRES: ${file(config.json):EXPIRES}
+
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "s3:GetObject"
+            - "s3:GetObjectVersion"
+          Resource:
+            - "arn:aws:s3:::${file(config.json):S3_BUCKET}/*"
+
+functions:
+  createSignedUrl:
+    handler: handler.createSignedUrl
+    events:
+      - http:
+          path: /sign
+          method: POST
+          cors: true
